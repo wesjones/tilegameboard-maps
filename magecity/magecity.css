@@ -1022,7 +1022,7 @@
 .magecity.double.roof-bamboo-top-left_grass {
   width: 32px;
   height: 32px;
-  background-position: 0px -736px, 0px 0px;
+  background-position: -160px -736px, 0px 0px;
 }
 .magecity.double.roof-bamboo-top-left_grass.trans:after {
   content: '1x1';
@@ -1030,7 +1030,7 @@
 .magecity.double.roof-bamboo-top-right_grass {
   width: 32px;
   height: 32px;
-  background-position: -64px -736px, 0px 0px;
+  background-position: -224px -736px, 0px 0px;
 }
 .magecity.double.roof-bamboo-top-right_grass.trans:after {
   content: '1x1';
@@ -2549,7 +2549,7 @@
 .magecity.x64.double.roof-bamboo-top-left_grass {
   width: 64px;
   height: 64px;
-  background-position: 0px -1472px, 0px 0px;
+  background-position: -320px -1472px, 0px 0px;
 }
 .magecity.x64.double.roof-bamboo-top-left_grass.trans:after {
   content: '1x1';
@@ -2557,7 +2557,7 @@
 .magecity.x64.double.roof-bamboo-top-right_grass {
   width: 64px;
   height: 64px;
-  background-position: -128px -1472px, 0px 0px;
+  background-position: -448px -1472px, 0px 0px;
 }
 .magecity.x64.double.roof-bamboo-top-right_grass.trans:after {
   content: '1x1';
