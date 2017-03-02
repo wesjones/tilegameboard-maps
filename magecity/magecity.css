@@ -899,36 +899,36 @@
 .magecity.roof-wood-front-arch-right.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-wood-top-left--grass {
+.magecity.double.roof-wood-top-left_grass {
   width: 32px;
   height: 32px;
   background-position: 0px -736px, 0px 0px;
 }
-.magecity.double.roof-wood-top-left--grass.trans:after {
+.magecity.double.roof-wood-top-left_grass.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-wood-top-right--grass {
+.magecity.double.roof-wood-top-right_grass {
   width: 32px;
   height: 32px;
   background-position: -64px -736px, 0px 0px;
 }
-.magecity.double.roof-wood-top-right--grass.trans:after {
+.magecity.double.roof-wood-top-right_grass.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-wood-top-left--sand-wall {
+.magecity.double.roof-wood-top-left_sand-wall {
   width: 32px;
   height: 32px;
   background-position: 0px -736px, -32px -128px;
 }
-.magecity.double.roof-wood-top-left--sand-wall.trans:after {
+.magecity.double.roof-wood-top-left_sand-wall.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-wood-top-right--sand-wall {
+.magecity.double.roof-wood-top-right_sand-wall {
   width: 32px;
   height: 32px;
   background-position: -64px -736px, -32px -128px;
 }
-.magecity.double.roof-wood-top-right--sand-wall.trans:after {
+.magecity.double.roof-wood-top-right_sand-wall.trans:after {
   content: '1x1';
 }
 .magecity.roof-bamboo-top-left {
@@ -1019,36 +1019,36 @@
 .magecity.roof-bamboo-front-arch-right.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-bamboo-top-left--grass {
+.magecity.double.roof-bamboo-top-left_grass {
   width: 32px;
   height: 32px;
   background-position: 0px -736px, 0px 0px;
 }
-.magecity.double.roof-bamboo-top-left--grass.trans:after {
+.magecity.double.roof-bamboo-top-left_grass.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-bamboo-top-right--grass {
+.magecity.double.roof-bamboo-top-right_grass {
   width: 32px;
   height: 32px;
   background-position: -64px -736px, 0px 0px;
 }
-.magecity.double.roof-bamboo-top-right--grass.trans:after {
+.magecity.double.roof-bamboo-top-right_grass.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-bamboo-top-left--sand-wall {
+.magecity.double.roof-bamboo-top-left_sand-wall {
   width: 32px;
   height: 32px;
   background-position: 0px -736px, -32px -128px;
 }
-.magecity.double.roof-bamboo-top-left--sand-wall.trans:after {
+.magecity.double.roof-bamboo-top-left_sand-wall.trans:after {
   content: '1x1';
 }
-.magecity.double.roof-bamboo-top-right--sand-wall {
+.magecity.double.roof-bamboo-top-right_sand-wall {
   width: 32px;
   height: 32px;
   background-position: -64px -736px, -32px -128px;
 }
-.magecity.double.roof-bamboo-top-right--sand-wall.trans:after {
+.magecity.double.roof-bamboo-top-right_sand-wall.trans:after {
   content: '1x1';
 }
 .magecity.grass-to-stone-left {
@@ -2426,36 +2426,36 @@
 .magecity.x64.roof-wood-front-arch-right.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-wood-top-left--grass {
+.magecity.x64.double.roof-wood-top-left_grass {
   width: 64px;
   height: 64px;
   background-position: 0px -1472px, 0px 0px;
 }
-.magecity.x64.double.roof-wood-top-left--grass.trans:after {
+.magecity.x64.double.roof-wood-top-left_grass.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-wood-top-right--grass {
+.magecity.x64.double.roof-wood-top-right_grass {
   width: 64px;
   height: 64px;
   background-position: -128px -1472px, 0px 0px;
 }
-.magecity.x64.double.roof-wood-top-right--grass.trans:after {
+.magecity.x64.double.roof-wood-top-right_grass.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-wood-top-left--sand-wall {
+.magecity.x64.double.roof-wood-top-left_sand-wall {
   width: 64px;
   height: 64px;
   background-position: 0px -1472px, -64px -256px;
 }
-.magecity.x64.double.roof-wood-top-left--sand-wall.trans:after {
+.magecity.x64.double.roof-wood-top-left_sand-wall.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-wood-top-right--sand-wall {
+.magecity.x64.double.roof-wood-top-right_sand-wall {
   width: 64px;
   height: 64px;
   background-position: -128px -1472px, -64px -256px;
 }
-.magecity.x64.double.roof-wood-top-right--sand-wall.trans:after {
+.magecity.x64.double.roof-wood-top-right_sand-wall.trans:after {
   content: '1x1';
 }
 .magecity.x64.roof-bamboo-top-left {
@@ -2546,36 +2546,36 @@
 .magecity.x64.roof-bamboo-front-arch-right.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-bamboo-top-left--grass {
+.magecity.x64.double.roof-bamboo-top-left_grass {
   width: 64px;
   height: 64px;
   background-position: 0px -1472px, 0px 0px;
 }
-.magecity.x64.double.roof-bamboo-top-left--grass.trans:after {
+.magecity.x64.double.roof-bamboo-top-left_grass.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-bamboo-top-right--grass {
+.magecity.x64.double.roof-bamboo-top-right_grass {
   width: 64px;
   height: 64px;
   background-position: -128px -1472px, 0px 0px;
 }
-.magecity.x64.double.roof-bamboo-top-right--grass.trans:after {
+.magecity.x64.double.roof-bamboo-top-right_grass.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-bamboo-top-left--sand-wall {
+.magecity.x64.double.roof-bamboo-top-left_sand-wall {
   width: 64px;
   height: 64px;
   background-position: 0px -1472px, -64px -256px;
 }
-.magecity.x64.double.roof-bamboo-top-left--sand-wall.trans:after {
+.magecity.x64.double.roof-bamboo-top-left_sand-wall.trans:after {
   content: '1x1';
 }
-.magecity.x64.double.roof-bamboo-top-right--sand-wall {
+.magecity.x64.double.roof-bamboo-top-right_sand-wall {
   width: 64px;
   height: 64px;
   background-position: -128px -1472px, -64px -256px;
 }
-.magecity.x64.double.roof-bamboo-top-right--sand-wall.trans:after {
+.magecity.x64.double.roof-bamboo-top-right_sand-wall.trans:after {
   content: '1x1';
 }
 .magecity.x64.grass-to-stone-left {
