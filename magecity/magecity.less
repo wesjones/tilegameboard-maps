@@ -1,0 +1,235 @@
+@import "functions";
+@width: 256;
+@height: 1452;
+@x32: 32;
+@x64: 64;
+
+.trans {
+  position: relative;
+  background: url(../checkersbg.png) !important;
+  background-size: 32px 32px !important;
+  &:after {
+    position:absolute;
+    top:0;
+    left:0;
+    font-size: 10px;
+    color:#fff;
+    background-color:rgba(0,0,0,0.25);
+  }
+}
+
+.bp(@name, @size, @x, @y, @w, @h) {
+  &.@{name} {width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px; &.trans:after {content:'@{w}x@{h}';} }
+}
+.bp(@name, @size, @x, @y, @w, @h, @x2, @y2, @w2, @h2) {
+  &.double.@{name} {width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px,  -@size * @x2 + 0px -@size * @y2 + 0px; &.trans:after {content:'@{w}x@{h}';} }
+}
+
+
+.gen(@w, @h, @size) {
+  .vendor(background-size, @w + 0px @h + 0px);
+  .bp(grass, @size, 0, 0, 1, 1);
+  .bp(blank, @size, 0, 1, 1, 1);
+  .bp(stone, @size, 1, 0, 1, 1);
+  .bp(stone-weed, @size, 1, 1, 1, 1);
+  .bp(herb-full, @size, 2, 0, 1, 1);
+  .bp(herb-half, @size, 3, 0, 1, 1);
+  .bp(plant-pot, @size, 4, 0, 1, 1);
+  .bp(fern, @size, 2, 1, 1, 1);
+  .bp(herb-pot, @size, 3, 1, 1, 1);
+  .bp(barrel-sml, @size, 4, 1, 1, 1);
+  .bp(table, @size, 5, 0, 2, 2);
+  .bp(stool-right, @size, 7, 0, 1, 1);
+  .bp(stool-left, @size, 7, 1, 1, 1);
+  .bp(fern-pillar, @size, 0, 2, 1, 2);
+
+  .bp(tree-pot-dead, @size, 1, 2, 2, 2);
+  .bp(tree-pot, @size, 3, 2, 1, 2);
+  .bp(barrel-lg, @size, 4, 2, 1, 2);
+  .bp(sand-column, @size, 5, 2, 1, 2);
+  .bp(sand-fountain, @size, 6, 2, 2, 2);
+
+  .bp(sand-wall-edge-left, @size, 0, 4, 1, 1);
+  .bp(sand-wall, @size, 1, 4, 1, 1);
+  .bp(sand-wall-edge-right, @size, 2, 4, 1, 1);
+  .bp(sand-wall-edge-left-dark, @size, 0, 5, 1, 1);
+  .bp(sand-wall-dark, @size, 1, 5, 1, 1);
+  .bp(sand-wall-edge-right-dark, @size, 2, 5, 1, 1);
+  .bp(sand-wall-top-edge-left, @size, 3, 4, 1, 1);
+  .bp(sand-wall-top, @size, 4, 4, 1, 1);
+  .bp(sand-wall-top-edge-right, @size, 5, 4, 1, 1);
+  .bp(sand-wall-top-vine, @size, 5, 5, 1, 1);
+  .bp(sand-wall-top-vine-start, @size, 6, 4, 1, 1);
+  .bp(sand-wall-top-vine-end, @size, 6, 5, 1, 1);
+  .bp(sand-wall-edge-right-vine, @size, 7, 4, 1, 1);
+  .bp(sand-wall-edge-right-vine-end, @size, 7, 5, 1, 1);
+  .bp(sand-wall-missing-block-left, @size, 3, 5, 1, 1);
+  .bp(sand-wall-missing-block-right, @size, 4, 5, 1, 1);
+  .bp(sand-wall-edge-top-left-water, @size, 0, 6, 1, 1);
+  .bp(sand-wall-edge-top-center-water, @size, 1, 6, 1, 1);
+  .bp(sand-wall-edge-top-right-water, @size, 2, 6, 1, 1);
+  .bp(sand-wall-edge-middle-left-water, @size, 0, 7, 1, 1);
+  .bp(sand-wall-edge-middle-center-water, @size, 1, 7, 1, 1);
+  .bp(sand-wall-edge-middle-right-water, @size, 2, 7, 1, 1);
+  .bp(sand-wall-narrow-top-water, @size, 3, 6, 1, 1);
+  .bp(sand-wall-narrow-center-water, @size, 3, 7, 1, 1);
+  .bp(sand-wall-ground, @size, 4, 6, 1, 1);
+  .bp(wall-grass, @size, 5, 6, 1, 1);
+  .bp(oil-lamp, @size, 6, 6, 1, 1);
+  .bp(spice, @size, 7, 6, 0.5, 1);
+  .bp(stairs-left, @size, 4, 7, 1, 1);
+  .bp(stairs-center, @size, 5, 7, 1, 1);
+  .bp(stairs-right, @size, 6, 7, 1, 1);
+  .bp(stairs-bottom-left, @size, 6, 8, 1, 1);
+  .bp(stairs-bottom-center, @size, 6, 8, 1, 1);
+  .bp(stairs-bottom-right, @size, 6, 8, 1, 1);
+  .bp(stairs-narrow, @size, 7, 7, 1, 1);
+  .bp(stairs-narrow-bottom, @size, 7, 8, 1, 1);
+
+  .bp(cobble-stone-top-left, @size, 0, 9, 1, 1);
+  .bp(cobble-stone-top-center, @size, 1, 9, 1, 1);
+  .bp(cobble-stone-top-right, @size, 2, 9, 1, 1);
+  .bp(cobble-stone-middle-left, @size, 0, 10, 1, 1);
+  .bp(cobble-stone-middle-center, @size, 1, 10, 1, 1);
+  .bp(cobble-stone-middle-right, @size, 2, 10, 1, 1);
+  .bp(cobble-stone-bottom-left, @size, 0, 11, 1, 1);
+  .bp(cobble-stone-bottom-center, @size, 1, 11, 1, 1);
+  .bp(cobble-stone-bottom-right, @size, 2, 11, 1, 1);
+  .bp(cobble-stone-2-top-left, @size, 3, 9, 1, 1);
+  .bp(cobble-stone-2-top-right, @size, 4, 9, 1, 1);
+  .bp(cobble-stone-2-bottom-left, @size, 3, 10, 1, 1);
+  .bp(cobble-stone-2-bottom-right, @size, 4, 10, 1, 1);
+
+  .bp(meal, @size, 5, 9, 1, 1);
+  .bp(meal-empty, @size, 6, 9, 1, 1);
+  .bp(flour, @size, 7, 9, 1, 1);
+  .bp(potions, @size, 5, 10, 1, 1);
+  .bp(tree-candles, @size, 0, 12, 1, 3);
+  .bp(mushrooms, @size, 1, 12, 1, 1);
+  .bp(bird-bath, @size, 1, 13, 1, 2);
+  .bp(woman-statue, @size, 2, 12, 1, 3);
+  .bp(bench, @size, 0, 15, 2, 2);
+  .bp(tree-cursed, @size, 2, 15, 2, 4);
+  .bp(tree-large, @size, 4, 14, 4, 5);
+  .bp(sand-wall-hole, @size, 0, 19, 1, 1);
+  .bp(glass-window-sign, @size, 0, 20, 1, 1);
+  .bp(glass-window, @size, 1, 19, 1, 2);
+  .bp(glass-window-narrow, @size, 2, 19, 1, 2);
+  .bp(glass-window-narrow-short, @size, 3, 19, 1, 2);
+  .bp(cupid, @size, 4, 19, 1, 2);
+  .bp(lantern-left, @size, 5, 20, 1, 1);
+  .bp(lantern-right, @size, 6, 20, 1, 1);
+  .bp(chimney, @size, 7, 19, 1, 2);
+  .bp(glass-window-right, @size, 0, 21, 1, 2);
+  .bp(glass-window-left, @size, 1, 21, 1, 2);
+  .bp(glass-window-center, @size, 2, 21, 1, 2);
+  .bp(glass-window-center-shutters, @size, 3, 21, 1, 2);
+  .bp(glass-window-center-with-trim-right, @size, 4, 21, 1, 2);
+  .bp(glass-window-center-with-trim-left, @size, 5, 21, 1, 2);
+  .bp(glass-window-narrow-double, @size, 6, 21, 1, 2);
+  .bp(glass-window-with-plants, @size, 7, 21, 1, 2);
+
+
+  .bp(roof-fill, @size, 3, 23, 1, 1);
+  .bp(roof-fill-broken, @size, 4, 23, 1, 1);
+  // wood
+  .bp(roof-wood-top-left, @size, 0, 23, 1, 1);
+  .bp(roof-wood-top-center, @size, 1, 23, 1, 1);
+  .bp(roof-wood-top-right, @size, 2, 23, 1, 1);
+  .bp(roof-wood-middle-left, @size, 0, 24, 1, 1);
+  .bp(roof-wood-middle-center, @size, 1, 24, 1, 1);
+  .bp(roof-wood-middle-right, @size, 2, 24, 1, 1);
+  .bp(roof-wood-bottom-left, @size, 0, 25, 1, 1);
+  .bp(roof-wood-bottom-center, @size, 1, 25, 1, 1);
+  .bp(roof-wood-bottom-right, @size, 2, 25, 1, 1);
+  .bp(roof-wood-front-arch-left, @size, 3, 24, 1, 1);
+  .bp(roof-wood-front-arch-right, @size, 4, 24, 1, 1);
+  .bp(roof-wood-top-left--grass, @size, 0, 23, 1, 1, 0, 0, 1, 1);
+  .bp(roof-wood-top-right--grass, @size, 2, 23, 1, 1, 0, 0, 1, 1);
+  .bp(roof-wood-top-left--sand-wall, @size, 0, 23, 1, 1, 1, 4, 1, 1);
+  .bp(roof-wood-top-right--sand-wall, @size, 2, 23, 1, 1, 1, 4, 1, 1);
+  // bamboo
+  .bp(roof-bamboo-top-left, @size, 5, 23, 1, 1);
+  .bp(roof-bamboo-top-center, @size, 6, 23, 1, 1);
+  .bp(roof-bamboo-top-right, @size, 7, 23, 1, 1);
+  .bp(roof-bamboo-middle-left, @size, 5, 24, 1, 1);
+  .bp(roof-bamboo-middle-center, @size, 6, 24, 1, 1);
+  .bp(roof-bamboo-middle-right, @size, 7, 24, 1, 1);
+  .bp(roof-bamboo-bottom-left, @size, 5, 25, 1, 1);
+  .bp(roof-bamboo-bottom-center, @size, 6, 25, 1, 1);
+  .bp(roof-bamboo-bottom-right, @size, 7, 25, 1, 1);
+  .bp(roof-bamboo-front-arch-left, @size, 3, 25, 1, 1);
+  .bp(roof-bamboo-front-arch-right, @size, 4, 25, 1, 1);
+  .bp(roof-bamboo-top-left--grass, @size, 0, 23, 1, 1, 0, 0, 1, 1);
+  .bp(roof-bamboo-top-right--grass, @size, 2, 23, 1, 1, 0, 0, 1, 1);
+  .bp(roof-bamboo-top-left--sand-wall, @size, 0, 23, 1, 1, 1, 4, 1, 1);
+  .bp(roof-bamboo-top-right--sand-wall, @size, 2, 23, 1, 1, 1, 4, 1, 1);
+
+  .bp(grass-to-stone-left, @size, 3, 26, 1, 1);
+  .bp(grass-to-stone-right, @size, 3, 27, 1, 1);
+  .bp(grass-to-stone-bottom, @size, 3, 28, 1, 1);
+  .bp(grass-to-stone-top, @size, 3, 29, 1, 1);
+  .bp(grass-with-stone-bottom-left, @size, 4, 29, 1, 1);
+  .bp(grass-with-stone-bottom-right, @size, 5, 29, 1, 1);
+  .bp(grass-with-stone-top-left, @size, 6, 29, 1, 1);
+  .bp(grass-with-stone-top-right, @size, 7, 29, 1, 1);
+  .bp(grass-shadow-top-left, @size, 7, 26, 1, 1);
+  .bp(grass-shadow-top-left-short, @size, 7, 27, 1, 1);
+  .bp(grass-shadow-left, @size, 7, 28, 1, 1);
+
+  .bp(brick-shadow-top-left, @size, 4, 26, 1, 1);
+  .bp(brick-shadow-top-center, @size, 5, 26, 1, 1);
+  .bp(brick-shadow-top-right, @size, 6, 26, 1, 1);
+  .bp(brick-left, @size, 4, 27, 1, 1);
+  .bp(brick-center, @size, 5, 27, 1, 1);
+  .bp(brick-right, @size, 6, 27, 1, 1);
+  .bp(brick-grass-bottom-left, @size, 4, 28, 1, 1);
+  .bp(brick-grass-bottom-center, @size, 5, 28, 1, 1);
+  .bp(brick-grass-bottom-right, @size, 6, 28, 1, 1);
+
+  .bp(tree-leaves-sml, @size, 0, 30, 3, 3);
+  .bp(tree-leaves-big, @size, 3, 30, 3, 3);
+  .bp(desk-right, @size, 6, 30, 2, 1);
+  .bp(desk-left, @size, 6, 31, 2, 1);
+  .bp(pumpkin, @size, 6, 32, 1, 1);
+  .bp(pumpkins, @size, 6, 33, 1, 1);
+  .bp(leaves-2, @size, 5, 33, 1, 1);
+  .bp(leaves-3, @size, 7, 33, 1, 1);
+  .bp(leaves-4, @size, 6, 34, 1, 1);
+  .bp(leaves-5, @size, 7, 32, 1, 1);
+  .bp(leaves-5-1, @size, 7, 34, 1, 1);
+
+  .bp(grass-dirt-patch-1-0x0, @size, 0, 33, 1, 1);
+  .bp(grass-dirt-patch-1-1x0, @size, 1, 33, 1, 1);
+  .bp(grass-dirt-patch-1-0x1, @size, 0, 34, 1, 1);
+  .bp(grass-dirt-patch-1-1x1, @size, 1, 34, 1, 1);
+
+  .bp(grass-dirt-patch-2-0x0, @size, 2, 33, 1, 1);
+  .bp(grass-dirt-patch-2-1x0, @size, 3, 33, 1, 1);
+  .bp(grass-dirt-patch-2-2x0, @size, 4, 33, 1, 1);
+  .bp(grass-dirt-patch-2-0x1, @size, 2, 34, 1, 1);
+  .bp(grass-dirt-patch-2-1x1, @size, 3, 34, 1, 1);
+  .bp(grass-dirt-patch-2-2x1, @size, 4, 34, 1, 1);
+  .bp(grass-dirt-patch-2-3x1, @size, 5, 34, 1, 1);
+  .bp(grass-dirt-patch-2-0x2, @size, 2, 35, 1, 1);
+  .bp(grass-dirt-patch-2-1x2, @size, 3, 35, 1, 1);
+  .bp(grass-dirt-patch-2-2x2, @size, 4, 35, 1, 1);
+  .bp(grass-dirt-patch-2-3x2, @size, 5, 35, 1, 1);
+}
+
+.magecity {
+  background-image: url(magecity_0.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  &.double {
+    background: url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat;
+  }
+  &.tripple {
+    background: url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat;
+  }
+  .gen(@width, @height, @x32);
+
+  &.x64 {
+    .gen(@width * 2, @height * 2, @x64);
+  }
+}
