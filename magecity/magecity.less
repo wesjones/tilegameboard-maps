@@ -258,3 +258,17 @@
     .gen(@width * 2, @height * 2, @x64);
   }
 }
+.x64 {
+  .magecity {
+    background-image: url(magecity_0.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    &.double {
+      background: url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat;
+    }
+    &.tripple {
+      background: url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat, url(magecity_0.png) no-repeat;
+    }
+    .gen(@width * 2, @height * 2, @x64);
+  }
+}

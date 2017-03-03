@@ -1,0 +1,32 @@
+{
+  "name": "tilegameboard-maps",
+  "version": "0.1.0",
+  "description": "Tiles already mapped out for https://github.com/wesjones/tilegameboard",
+  "main": "index.html",
+  "authors": [
+    "Wes Jones <cybus10@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "game",
+    "board",
+    "tile",
+    "scrolling"
+  ],
+  "homepage": "https://github.com/wesjones/tilegameboard-maps",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    ".gitnore",
+    "package.json",
+    "README.md",
+    "Gruntfile.js",
+    "logs",
+    "bower.json"
+  ]
+}
