@@ -1,7 +1,7 @@
 {
   "name": "tilegameboard-maps",
   "version": "0.1.0",
-  "description": "Tiles already mapped out for https://github.com/wesjones/tilegameboard",
+  "description": "Tiles already mapped out for https://github.com/wesjones/tilegameboard-maps",
   "main": "index.html",
   "authors": [
     "Wes Jones <cybus10@gmail.com>"
