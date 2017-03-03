@@ -17,6 +17,8 @@
   "private": false,
   "ignore": [
     "**/.*",
+    "*.less",
+    "functions.css",
     "node_modules",
     "bower_components",
     "test",
