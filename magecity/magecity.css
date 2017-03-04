@@ -1597,6 +1597,14 @@
 .magecity.brick-shadow-left-edge-grass-dark.trans:after {
   content: '1x1';
 }
+.magecity.doorway {
+  width: 32px;
+  height: 64px;
+  background-position: -192px -1280px;
+}
+.magecity.doorway.trans:after {
+  content: '1x2';
+}
 .magecity.x64 {
   -webkit-background-size: 512px 2904px;
   -moz-background-size: 512px 2904px;
@@ -3173,6 +3181,14 @@
 }
 .magecity.x64.brick-shadow-left-edge-grass-dark.trans:after {
   content: '1x1';
+}
+.magecity.x64.doorway {
+  width: 64px;
+  height: 128px;
+  background-position: -384px -2560px;
+}
+.magecity.x64.doorway.trans:after {
+  content: '1x2';
 }
 .x64 .magecity {
   background-image: url(magecity_0.png);
@@ -4759,4 +4775,12 @@
 }
 .x64 .magecity.brick-shadow-left-edge-grass-dark.trans:after {
   content: '1x1';
+}
+.x64 .magecity.doorway {
+  width: 64px;
+  height: 128px;
+  background-position: -384px -2560px;
+}
+.x64 .magecity.doorway.trans:after {
+  content: '1x2';
 }
