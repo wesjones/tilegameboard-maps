@@ -1212,6 +1212,7 @@
   content: '1x1';
 }
 .magecity.tree-leaves-sml {
+  z-index: 1;
   width: 96px;
   height: 96px;
   background-position: 0px -960px;
@@ -1220,6 +1221,7 @@
   content: '3x3';
 }
 .magecity.tree-leaves-big {
+  z-index: 1;
   width: 96px;
   height: 96px;
   background-position: -96px -960px;
@@ -2787,6 +2789,7 @@
   content: '1x1';
 }
 .magecity.x64.tree-leaves-sml {
+  z-index: 1;
   width: 192px;
   height: 192px;
   background-position: 0px -1920px;
@@ -2795,6 +2798,7 @@
   content: '3x3';
 }
 .magecity.x64.tree-leaves-big {
+  z-index: 1;
   width: 192px;
   height: 192px;
   background-position: -192px -1920px;
@@ -4371,6 +4375,7 @@
   content: '1x1';
 }
 .x64 .magecity.tree-leaves-sml {
+  z-index: 1;
   width: 192px;
   height: 192px;
   background-position: 0px -1920px;
@@ -4379,6 +4384,7 @@
   content: '3x3';
 }
 .x64 .magecity.tree-leaves-big {
+  z-index: 1;
   width: 192px;
   height: 192px;
   background-position: -192px -1920px;

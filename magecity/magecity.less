@@ -24,6 +24,10 @@
 .bp(@name, @size, @x, @y, @w, @h, @x2, @y2, @w2, @h2) {
   &.double.@{name} {width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px,  -@size * @x2 + 0px -@size * @y2 + 0px; &.trans:after {content:'@{w}x@{h}';} }
 }
+// items can support a z index on the item.
+.bpi(@name, @size, @x, @y, @w, @h, @z:0) {
+  &.@{name} {z-index: @z; width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px; &.trans:after {content:'@{w}x@{h}';} }
+}
 
 
 .gen(@w, @h, @size) {
@@ -187,8 +191,8 @@
   .bp(brick-grass-bottom-center, @size, 5, 28, 1, 1);
   .bp(brick-grass-bottom-right, @size, 6, 28, 1, 1);
 
-  .bp(tree-leaves-sml, @size, 0, 30, 3, 3);
-  .bp(tree-leaves-big, @size, 3, 30, 3, 3);
+  .bpi(tree-leaves-sml, @size, 0, 30, 3, 3, 1);
+  .bpi(tree-leaves-big, @size, 3, 30, 3, 3, 1);
   .bp(desk-right, @size, 6, 30, 2, 1);
   .bp(desk-left, @size, 6, 31, 2, 1);
   .bp(pumpkin, @size, 6, 32, 1, 1);
