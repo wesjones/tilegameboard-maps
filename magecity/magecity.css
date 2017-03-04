@@ -2,6 +2,11 @@
   position: relative;
   background: url(../checkersbg.png) !important;
   background-size: 32px 32px !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform: none !important;
 }
 .trans:after {
   position: absolute;
@@ -1216,6 +1221,11 @@
   width: 96px;
   height: 96px;
   background-position: 0px -960px;
+  -webkit-transform: translate(-32px, -32px);
+  -moz-transform: translate(-32px, -32px);
+  -ms-transform: translate(-32px, -32px);
+  -o-transform: translate(-32px, -32px);
+  transform: translate(-32px, -32px);
 }
 .magecity.tree-leaves-sml.trans:after {
   content: '3x3';
@@ -1225,6 +1235,11 @@
   width: 96px;
   height: 96px;
   background-position: -96px -960px;
+  -webkit-transform: translate(-32px, -32px);
+  -moz-transform: translate(-32px, -32px);
+  -ms-transform: translate(-32px, -32px);
+  -o-transform: translate(-32px, -32px);
+  transform: translate(-32px, -32px);
 }
 .magecity.tree-leaves-big.trans:after {
   content: '3x3';
@@ -1598,9 +1613,15 @@
   content: '1x1';
 }
 .magecity.doorway {
+  z-index: 0;
   width: 32px;
   height: 64px;
   background-position: -192px -1280px;
+  -webkit-transform: translate(0px, -32px);
+  -moz-transform: translate(0px, -32px);
+  -ms-transform: translate(0px, -32px);
+  -o-transform: translate(0px, -32px);
+  transform: translate(0px, -32px);
 }
 .magecity.doorway.trans:after {
   content: '1x2';
@@ -2801,6 +2822,11 @@
   width: 192px;
   height: 192px;
   background-position: 0px -1920px;
+  -webkit-transform: translate(-64px, -64px);
+  -moz-transform: translate(-64px, -64px);
+  -ms-transform: translate(-64px, -64px);
+  -o-transform: translate(-64px, -64px);
+  transform: translate(-64px, -64px);
 }
 .magecity.x64.tree-leaves-sml.trans:after {
   content: '3x3';
@@ -2810,6 +2836,11 @@
   width: 192px;
   height: 192px;
   background-position: -192px -1920px;
+  -webkit-transform: translate(-64px, -64px);
+  -moz-transform: translate(-64px, -64px);
+  -ms-transform: translate(-64px, -64px);
+  -o-transform: translate(-64px, -64px);
+  transform: translate(-64px, -64px);
 }
 .magecity.x64.tree-leaves-big.trans:after {
   content: '3x3';
@@ -3183,9 +3214,15 @@
   content: '1x1';
 }
 .magecity.x64.doorway {
+  z-index: 0;
   width: 64px;
   height: 128px;
   background-position: -384px -2560px;
+  -webkit-transform: translate(0px, -64px);
+  -moz-transform: translate(0px, -64px);
+  -ms-transform: translate(0px, -64px);
+  -o-transform: translate(0px, -64px);
+  transform: translate(0px, -64px);
 }
 .magecity.x64.doorway.trans:after {
   content: '1x2';
@@ -4395,6 +4432,11 @@
   width: 192px;
   height: 192px;
   background-position: 0px -1920px;
+  -webkit-transform: translate(-64px, -64px);
+  -moz-transform: translate(-64px, -64px);
+  -ms-transform: translate(-64px, -64px);
+  -o-transform: translate(-64px, -64px);
+  transform: translate(-64px, -64px);
 }
 .x64 .magecity.tree-leaves-sml.trans:after {
   content: '3x3';
@@ -4404,6 +4446,11 @@
   width: 192px;
   height: 192px;
   background-position: -192px -1920px;
+  -webkit-transform: translate(-64px, -64px);
+  -moz-transform: translate(-64px, -64px);
+  -ms-transform: translate(-64px, -64px);
+  -o-transform: translate(-64px, -64px);
+  transform: translate(-64px, -64px);
 }
 .x64 .magecity.tree-leaves-big.trans:after {
   content: '3x3';
@@ -4777,9 +4824,15 @@
   content: '1x1';
 }
 .x64 .magecity.doorway {
+  z-index: 0;
   width: 64px;
   height: 128px;
   background-position: -384px -2560px;
+  -webkit-transform: translate(0px, -64px);
+  -moz-transform: translate(0px, -64px);
+  -ms-transform: translate(0px, -64px);
+  -o-transform: translate(0px, -64px);
+  transform: translate(0px, -64px);
 }
 .x64 .magecity.doorway.trans:after {
   content: '1x2';

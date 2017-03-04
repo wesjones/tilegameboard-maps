@@ -8,6 +8,7 @@
   position: relative;
   background: url(../checkersbg.png) !important;
   background-size: 32px 32px !important;
+  .vendor(transform, none) !important;
   &:after {
     position:absolute;
     top:0;
@@ -25,8 +26,8 @@
   &.double.@{name} {width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px,  -@size * @x2 + 0px -@size * @y2 + 0px; &.trans:after {content:'@{w}x@{h}';} }
 }
 // items can support a z index on the item.
-.bpi(@name, @size, @x, @y, @w, @h, @z:0) {
-  &.@{name} {z-index: @z; width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px; &.trans:after {content:'@{w}x@{h}';} }
+.bpi(@name, @size, @x, @y, @w, @h, @z:0, @ox:0, @oy:0) {
+  &.@{name} {z-index: @z; width:@w * @size + 0px; height: @h * @size + 0px; background-position: -@size * @x + 0px -@size * @y + 0px; .vendor(transform, translate(@ox * @size + 0px, @oy * @size + 0px)); &.trans:after {content:'@{w}x@{h}';} }
 }
 
 
@@ -191,8 +192,8 @@
   .bp(brick-grass-bottom-center, @size, 5, 28, 1, 1);
   .bp(brick-grass-bottom-right, @size, 6, 28, 1, 1);
 
-  .bpi(tree-leaves-sml, @size, 0, 30, 3, 3, 1);
-  .bpi(tree-leaves-big, @size, 3, 30, 3, 3, 1);
+  .bpi(tree-leaves-sml, @size, 0, 30, 3, 3, 1, -1, -1);
+  .bpi(tree-leaves-big, @size, 3, 30, 3, 3, 1, -1, -1);
   .bp(desk-right, @size, 6, 30, 2, 1);
   .bp(desk-left, @size, 6, 31, 2, 1);
   .bp(pumpkin, @size, 6, 32, 1, 1);
@@ -245,7 +246,7 @@
   .bp(brick-shadow-left-edge-grass, @size, 0, 37, 1, 1);
   .bp(brick-shadow-left-edge-grass-dark, @size, 1, 37, 1, 1);
 
-  .bp(doorway, @size, 6, 40, 1, 2);
+  .bpi(doorway, @size, 6, 40, 1, 2, 0, 0, -1);
 }
 
 .magecity {
