@@ -266,7 +266,7 @@
         var cls = 'magecity ' + classes[i];
         var d = document.createElement('div');
         d.className = "row";
-        d.innerHTML = '<div class="label ' + (cls.indexOf(' double ') !== -1 ? 'double' : (cls.indexOf(' tripple ') !== -1 ? 'tripple' : '')) + '">' + cls.replace(/\-/g, '&#8209;') + '</div><div class="' + cls + ' trans"><div class="' + cls + '"></div></div>';
+        d.innerHTML = '<div class="label ' + (cls.indexOf(' double ') !== -1 ? 'double' : (cls.indexOf(' tripple ') !== -1 ? 'tripple' : '')) + '">' + cls + '</div><div class="' + cls + ' trans"><div class="' + cls + '"></div></div>';
         blocks.appendChild(d);
     }
 </script>
