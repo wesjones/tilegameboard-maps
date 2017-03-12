@@ -1372,6 +1372,38 @@
 .magecity.double.leaves-5-1_grass.trans:after {
   content: '1x1';
 }
+.magecity.double.leaves-2_grass-shadow-top-left {
+  width: 32px;
+  height: 32px;
+  background-position: -160px -1056px, -224px -832px;
+}
+.magecity.double.leaves-2_grass-shadow-top-left.trans:after {
+  content: '1x1';
+}
+.magecity.double.leaves-2_grass-shadow-top-left-short {
+  width: 32px;
+  height: 32px;
+  background-position: -160px -1056px, -224px -864px;
+}
+.magecity.double.leaves-2_grass-shadow-top-left-short.trans:after {
+  content: '1x1';
+}
+.magecity.double.leaves-2_grass-shadow-left {
+  width: 32px;
+  height: 32px;
+  background-position: -160px -1056px, -224px -896px;
+}
+.magecity.double.leaves-2_grass-shadow-left.trans:after {
+  content: '1x1';
+}
+.magecity.double.leaves-2_grass-shadow-bottom-left {
+  width: 32px;
+  height: 32px;
+  background-position: -160px -1056px, -192px -1120px;
+}
+.magecity.double.leaves-2_grass-shadow-bottom-left.trans:after {
+  content: '1x1';
+}
 .magecity.grass-dirt-patch-1-0x0 {
   width: 32px;
   height: 32px;
@@ -2999,6 +3031,38 @@
   background-position: -448px -2176px, 0px 0px;
 }
 .magecity.x64.double.leaves-5-1_grass.trans:after {
+  content: '1x1';
+}
+.magecity.x64.double.leaves-2_grass-shadow-top-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1664px;
+}
+.magecity.x64.double.leaves-2_grass-shadow-top-left.trans:after {
+  content: '1x1';
+}
+.magecity.x64.double.leaves-2_grass-shadow-top-left-short {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1728px;
+}
+.magecity.x64.double.leaves-2_grass-shadow-top-left-short.trans:after {
+  content: '1x1';
+}
+.magecity.x64.double.leaves-2_grass-shadow-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1792px;
+}
+.magecity.x64.double.leaves-2_grass-shadow-left.trans:after {
+  content: '1x1';
+}
+.magecity.x64.double.leaves-2_grass-shadow-bottom-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -384px -2240px;
+}
+.magecity.x64.double.leaves-2_grass-shadow-bottom-left.trans:after {
   content: '1x1';
 }
 .magecity.x64.grass-dirt-patch-1-0x0 {
@@ -4637,6 +4701,38 @@
   background-position: -448px -2176px, 0px 0px;
 }
 .x64 .magecity.double.leaves-5-1_grass.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.double.leaves-2_grass-shadow-top-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1664px;
+}
+.x64 .magecity.double.leaves-2_grass-shadow-top-left.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.double.leaves-2_grass-shadow-top-left-short {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1728px;
+}
+.x64 .magecity.double.leaves-2_grass-shadow-top-left-short.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.double.leaves-2_grass-shadow-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -448px -1792px;
+}
+.x64 .magecity.double.leaves-2_grass-shadow-left.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.double.leaves-2_grass-shadow-bottom-left {
+  width: 64px;
+  height: 64px;
+  background-position: -320px -2112px, -384px -2240px;
+}
+.x64 .magecity.double.leaves-2_grass-shadow-bottom-left.trans:after {
   content: '1x1';
 }
 .x64 .magecity.grass-dirt-patch-1-0x0 {
