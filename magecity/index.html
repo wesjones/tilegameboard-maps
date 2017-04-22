@@ -600,6 +600,10 @@
 
     onSelectTile(document.querySelector(".magecity.blank").parentNode, "magecity blank");
 
+    window.onbeforeunload = function() {
+        return "Are you sure you want to leave? You will loose any unsaved changes.";
+    };
+
     document.querySelector(".json").value = JSON.stringify({
         "visibleMaxWidth": 7,
         "visibleMaxHeight": 7,
@@ -618,6 +622,9 @@
             [{"type":"magecity cobble-stone-bottom-left"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-right"}]
         ],
         "items": [
+            {"x": 4, "y":0, "classes":"magecity doorway-up", "goto":"maps/home-village.json"},
+            {"x": 0, "y":4, "classes":"magecity doorway-left", "goto":"maps/home-village.json"},
+            {"x": 8, "y":4, "classes":"magecity doorway-right", "goto":"maps/home-village.json"},
             {"x": 4, "y":8, "classes":"magecity doorway-down", "goto":"maps/home-village.json"}
         ]
     }, null, 2);
