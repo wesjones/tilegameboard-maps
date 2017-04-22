@@ -14,11 +14,54 @@
             height: 100%;
             background: #ccc;
         }
+        #toggler {
+            width: 100%;
+        }
+        #toggler:before {
+            content: "Toggle: ";
+        }
+        input {
+            text-align: right;
+            width: 50px;
+        }
+        .page {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            flex-grow: 4;
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+            position: relative;
+            background: #666;
+        }
+        .content {
+            opacity: 1;
+            counter-reset: yval;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+        }
+        .items {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .item-mode .content {
+            opacity: 0.5;
+        }
+        .item-mode .items {
+            opacity: 1;
+            pointer-events: auto;
+        }
         .blocks {
+            flex: 1 0 auto;
             display: flex;
             flex-direction: column;
-            flex-wrap: wrap;
-            height: calc(50*32px);
+            min-width: 300px;
+            overflow: scroll;
+            border: 1px solid #000;
         }
         .row {
             margin-right:5px;
@@ -26,11 +69,16 @@
         .row:nth-child(odd) {
             background: #ddd;
         }
+        .blocks .row div {
+            min-width: 32px;
+            min-height: 32px;
+        }
         .blocks .row div.label {
+            width: auto;
             height: 32px;
             display: inline-block;
             vertical-align: top;
-            flex-grow: 1;
+            flex: 1 0 auto;
         }
         .blocks .row div.label.double {
             color: #336699;
@@ -40,16 +88,116 @@
         }
         .blocks .row {
             width: 250px;
-            flex-grow: 1;
+            min-height: 32px;
+            flex: 1 0 auto;
             display: flex;
         }
         .blocks .row div {
             display: block;
         }
+
+        .tile {
+            display: flex;
+            flex-direction: row;
+            counter-reset: xval;
+            counter-increment: yval;
+        }
+        .tile-col {
+            position: relative;
+            box-sizing: border-box;
+            min-width: 32px;
+            min-height: 32px;
+            border-right: 1px solid black;
+            /border-bottom: 1px solid black;
+        }
+        .tile-col::after {
+            display: block;
+            font-size: 8px;
+            counter-increment: xval;
+            content: counters(yval, ".") "x" counters(xval, ".");
+            color: #FFF;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            padding: 2px;
+        }
+        .tile-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+        }
+        .item-mode .tile-item {
+            border: 1px solid #F00;
+            box-sizing: border-box;
+        }
+        .item-mode .remove-item-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: #FFF;
+            border-radius: 50%;
+        }
+        .item-mode .remove-item-button:after {
+            content: "X";
+            color: #F00;
+            font-size: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .selected-block {
+            background-color: #336699 !important;
+        }
+        .selected-start {
+            border: 1px solid #336699;
+        }
+        .selected-move {
+            border: 1px solid #00CCFF;
+        }
+        .json {
+            width: 100%;
+            height: 300px;
+            font-size: 8px;
+        }
     </style>
 </head>
 <body>
-<div class="blocks"></div>
+<button id="toggler" onclick="toggle();">Tile Mode</button>
+<label for="rows">Rows:</label>
+<input id="rows" type="number" value="100">
+<label for="cols">Cols:</label>
+<input id="cols" type="number" value="100">
+<button onclick="generate()">Generate</button>
+
+<label>StartY</label>
+<input id="startY" type="number" value="0">
+<label>StartX</label>
+<input id="startX" type="number" value="0">
+<label>EndY</label>
+<input id="endY" type="number" value="0">
+<label>EndX</label>
+<input id="endX" type="number" value="0">
+<label>Classes</label>
+<input id="classes" type="hidden" value="">
+<button onclick="populateClasses()">Populate</button>
+<button onclick="exportData()">Export</button>
+
+<div class="page">
+    <div class="container">
+        <div class="content"></div>
+        <div class="items"></div>
+    </div>
+    <div class="blocks"></div>
+</div>
+<textarea class="json" onchange="onJSONChange()"></textarea>
 
 <script>
     var classes = [
@@ -171,8 +319,10 @@
         'double roof-wood-top-right_sand-wall',
 
         'doorway',
-        'doorway-down-stone',
-        'doorway-down-cobble-stone',
+        'doorway-up',
+        'doorway-down',
+        'doorway-left',
+        'doorway-right',
 
         'roof-bamboo-top-left',
         'roof-bamboo-top-center',
@@ -270,9 +420,209 @@
         var cls = 'magecity ' + classes[i];
         var d = document.createElement('div');
         d.className = "row";
-        d.innerHTML = '<div class="label ' + (cls.indexOf(' double ') !== -1 ? 'double' : (cls.indexOf(' tripple ') !== -1 ? 'tripple' : '')) + '">' + cls + '</div><div class="' + cls + ' trans"><div class="' + cls + '"></div></div>';
+        d.innerHTML = '<div class="label ' + (cls.indexOf(' double ') !== -1 ? 'double' : (cls.indexOf(' tripple ') !== -1 ? 'tripple' : '')) + '" onclick="onSelectTile(this, \'' + cls + '\')">' + cls + '</div><div class="' + cls + ' trans"><div class="' + cls + '"></div></div>';
         blocks.appendChild(d);
     }
+</script>
+<script>
+
+    // this code is for the generator.
+    var containerEl = document.querySelector(".container");
+    var contentEl = document.querySelector(".content");
+    var itemsEl = document.querySelector(".items");
+    var togglerEl = document.querySelector("#toggler");
+
+    var ignoreJsonChange = false;
+    var data;
+    var startPoint = false;
+    var itemMode = false;
+
+    function toggle() {
+        itemMode = !itemMode;
+        if(itemMode) {
+            togglerEl.innerText = "Item Mode";
+            containerEl.classList.add('item-mode');
+        } else {
+            togglerEl.innerText = "Tile Mode";
+            containerEl.classList.remove('item-mode');
+        }
+    }
+
+    function onSelectTile(el, str) {
+        var prev = document.querySelector('.selected-block');
+        if (prev) {
+            prev.classList.remove("selected-block");
+        }
+        el.classList.add('selected-block');
+        document.querySelector('#classes').value = str;
+    }
+
+    function onMouseMove(event) {
+        var el = document.querySelector("selected-move");
+        if (el) {
+            el.classList.remove("selected-move");
+        }
+        updateValueFromEvent(event, "#endX", "#endY");
+    }
+
+    function onMouseUp(event) {
+        if (itemMode) {
+            var item = updateValueFromEvent(event, "#startX", "#startY");
+            item.classes = document.querySelector("#classes").value;
+            item.goto = "changeme.json";
+            data.items.push(item);
+            render();
+        } else {
+            if (!startPoint) {
+                event.target.classList.add('selected-start');
+                updateValueFromEvent(event, "#startX", "#startY");
+                startPoint = true;
+                contentEl.addEventListener("mousemove", onMouseMove);
+            } else {
+                var el = document.querySelector("selected-start");
+                if (el) {
+                    el.classList.remove("selected-start");
+                }
+                updateValueFromEvent(event, "#endX", "#endY");
+                contentEl.removeEventListener("mousemove", onMouseMove);
+                populateClasses();
+                startPoint = false;
+            }
+        }
+    }
+
+    function updateValueFromEvent(event, xId, yId) {
+        var row = event.target.parentNode;
+        var x = Array.prototype.slice.call(row.children).indexOf(event.target);
+        var y = Array.prototype.slice.call(contentEl.children).indexOf(row);
+        console.log("Y:" + y, "X:" + x);
+        inputValue(yId, y);
+        inputValue(xId, x);
+        return {y:y, x:x};
+    }
+
+    contentEl.addEventListener('mouseup', onMouseUp);
+
+    function inputValue(name, value) {
+        var el = document.querySelector(name);
+        if (value !== undefined) {
+            el.value = value;
+        }
+        return parseInt(el.value, 10);
+    }
+
+    function generate() {
+        var rows = document.querySelector("#rows").value;
+        var cols = document.querySelector("#cols").value;
+        rows = parseInt(rows, 10);
+        cols = parseInt(cols, 10);
+        if (data.boardData && (rows < data.boardData.length || cols < data.boardData[0].length)) {
+            contentEl.innerHTML = '';
+            data.boardData = [];
+        }
+        data.boardData = makeBoard(rows, cols);
+        render();
+    }
+
+    function populateClasses() {
+        var startX = inputValue("#startX");
+        var startY = inputValue("#startY");
+        var endX = inputValue("#endX");
+        var endY = inputValue("#endY");
+        var className = document.querySelector("#classes").value;
+
+        for (var y = startY; y <= endY; y += 1) {
+            for (var x = startX; x <= endX; x += 1) {
+                data.boardData[y][x].type = className;
+            }
+        }
+        render();
+    }
+
+    function render() {
+        for (var y = 0; y < data.boardData.length; y += 1) {
+            for (var x = 0; x < data.boardData[y].length; x += 1) {
+                var row, col;
+                if (!(row = contentEl.children[y])) {
+                    row = addRow();
+                }
+                if (!(col = row.children[x])) {
+                    col = addCol(row);
+                }
+                col.className = "tile-col " + data.boardData[y][x].type;
+            }
+        }
+        var itemsStr = '';
+        for(var i = 0; i < data.items.length; i += 1) {
+            var item = data.items[i];
+            itemsStr += '<div class="tile-item ' + item.classes + '" style="top:' + (item.y*32) + 'px;left:' + (item.x*32) + 'px;"><div class="remove-item-button" onclick="data.items.splice(' + i + ', 1);event.preventDefault();render();"></div></div>';
+        }
+        itemsEl.innerHTML = itemsStr;
+        ignoreJsonChange = true;
+        document.querySelector(".json").value = JSON.stringify(data, null, 2);
+        ignoreJsonChange = false;
+    }
+
+    function addRow() {
+        var row = document.createElement("div");
+        row.classList.add("tile");
+        contentEl.appendChild(row);
+        return row;
+    }
+
+    function addCol(row) {
+        var col = document.createElement("div");
+        col.classList.add("tile-col");
+        row.appendChild(col);
+        return col;
+    }
+
+    function makeBoard(rows, cols) {
+        var board = data.boardData || [];
+        for (var r = 0; r < rows; r += 1) {
+            board[r] = board[r] || [];
+            for (var c = 0; c < cols; c += 1) {
+                board[r][c] = board[r][c] || {type: ""};
+            }
+        }
+//        console.log(board);
+        return board;
+    }
+
+    function onJSONChange() {
+        if (!ignoreJsonChange) {
+            data = JSON.parse(document.querySelector(".json").value);
+            document.querySelector("#rows").value = data.boardData.length;
+            document.querySelector("#cols").value = data.boardData[0].length;
+            generate();
+        }
+    }
+
+    onSelectTile(document.querySelector(".magecity.blank").parentNode, "magecity blank");
+
+    document.querySelector(".json").value = JSON.stringify({
+        "visibleMaxWidth": 7,
+        "visibleMaxHeight": 7,
+        "startingPositions": [
+            {"x": 4, "y":7}
+        ],
+        "boardData": [
+            [{"type":"magecity cobble-stone-top-left"},    {"type":"magecity cobble-stone-top-center"},    {"type":"magecity cobble-stone-top-center"},    {"type":"magecity cobble-stone-top-center"}, {"type":"magecity cobble-stone-top-center"},       {"type":"magecity cobble-stone-top-center"},    {"type":"magecity cobble-stone-top-center"},    {"type":"magecity cobble-stone-top-center"},    {"type":"magecity cobble-stone-top-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-middle-left"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-center"}, {"type":"magecity cobble-stone-middle-right"}],
+            [{"type":"magecity cobble-stone-bottom-left"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-center"}, {"type":"magecity cobble-stone-bottom-right"}]
+        ],
+        "items": [
+            {"x": 4, "y":8, "classes":"magecity doorway-down", "goto":"maps/home-village.json"}
+        ]
+    }, null, 2);
+    onJSONChange();
+
 </script>
 </body>
 </html>

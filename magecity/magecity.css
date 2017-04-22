@@ -1658,7 +1658,7 @@
 .magecity.doorway.trans:after {
   content: '1x2';
 }
-.magecity.doorway-down-stone {
+.magecity.doorway-up {
   z-index: 0;
   width: 32px;
   height: 32px;
@@ -1669,21 +1669,49 @@
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.magecity.doorway-down-stone.trans:after {
+.magecity.doorway-up.trans:after {
   content: '1x1';
 }
-.magecity.doorway-down-cobble-stone {
+.magecity.doorway-down {
   z-index: 0;
   width: 32px;
   height: 32px;
-  background-position: -160px -1376px;
+  background-position: -96px -1376px;
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.magecity.doorway-down-cobble-stone.trans:after {
+.magecity.doorway-down.trans:after {
+  content: '1x1';
+}
+.magecity.doorway-left {
+  z-index: 0;
+  width: 32px;
+  height: 32px;
+  background-position: -96px -1408px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.magecity.doorway-left.trans:after {
+  content: '1x1';
+}
+.magecity.doorway-right {
+  z-index: 0;
+  width: 32px;
+  height: 32px;
+  background-position: -128px -1408px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.magecity.doorway-right.trans:after {
   content: '1x1';
 }
 .magecity.x64 {
@@ -3319,7 +3347,7 @@
 .magecity.x64.doorway.trans:after {
   content: '1x2';
 }
-.magecity.x64.doorway-down-stone {
+.magecity.x64.doorway-up {
   z-index: 0;
   width: 64px;
   height: 64px;
@@ -3330,21 +3358,49 @@
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.magecity.x64.doorway-down-stone.trans:after {
+.magecity.x64.doorway-up.trans:after {
   content: '1x1';
 }
-.magecity.x64.doorway-down-cobble-stone {
+.magecity.x64.doorway-down {
   z-index: 0;
   width: 64px;
   height: 64px;
-  background-position: -320px -2752px;
+  background-position: -192px -2752px;
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.magecity.x64.doorway-down-cobble-stone.trans:after {
+.magecity.x64.doorway-down.trans:after {
+  content: '1x1';
+}
+.magecity.x64.doorway-left {
+  z-index: 0;
+  width: 64px;
+  height: 64px;
+  background-position: -192px -2816px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.magecity.x64.doorway-left.trans:after {
+  content: '1x1';
+}
+.magecity.x64.doorway-right {
+  z-index: 0;
+  width: 64px;
+  height: 64px;
+  background-position: -256px -2816px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.magecity.x64.doorway-right.trans:after {
   content: '1x1';
 }
 .x64 .magecity {
@@ -4989,7 +5045,7 @@
 .x64 .magecity.doorway.trans:after {
   content: '1x2';
 }
-.x64 .magecity.doorway-down-stone {
+.x64 .magecity.doorway-up {
   z-index: 0;
   width: 64px;
   height: 64px;
@@ -5000,20 +5056,48 @@
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.x64 .magecity.doorway-down-stone.trans:after {
+.x64 .magecity.doorway-up.trans:after {
   content: '1x1';
 }
-.x64 .magecity.doorway-down-cobble-stone {
+.x64 .magecity.doorway-down {
   z-index: 0;
   width: 64px;
   height: 64px;
-  background-position: -320px -2752px;
+  background-position: -192px -2752px;
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   -o-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
-.x64 .magecity.doorway-down-cobble-stone.trans:after {
+.x64 .magecity.doorway-down.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.doorway-left {
+  z-index: 0;
+  width: 64px;
+  height: 64px;
+  background-position: -192px -2816px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.x64 .magecity.doorway-left.trans:after {
+  content: '1x1';
+}
+.x64 .magecity.doorway-right {
+  z-index: 0;
+  width: 64px;
+  height: 64px;
+  background-position: -256px -2816px;
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+.x64 .magecity.doorway-right.trans:after {
   content: '1x1';
 }
